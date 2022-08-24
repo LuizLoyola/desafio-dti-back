@@ -64,7 +64,7 @@ public static class Rules
                 return false;
             // if PJ, document must be an valid CNPJ
             case PersonType.PJ when !ValidateCnpj(loan.Document):
-                message = "CNPJ inválido.";
+                message = "CNPJ inválido";
                 return false;
         }
         
@@ -73,7 +73,7 @@ public static class Rules
         // name must have at least 3 characters and maximum of 100
         if (loan.Name.Length is < 3 or > 100)
         {
-            message = "Nome inválido.";
+            message = "Nome inválido";
             return false;
         }
     
@@ -87,7 +87,7 @@ public static class Rules
         // if requested loan is greater than half of the current debt, deny
         if (loan.RequestedLoan > loan.CurrentDebt / 2)
         {
-            message = "Valor pedido é maior que a metade do valor atual do empréstimo";
+            message = "Valor pedido é maior que a metade da dívida ativa";
             return false;
         }
     
